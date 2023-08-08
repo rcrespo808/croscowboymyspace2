@@ -1,0 +1,1 @@
+UPDATE `eventosview` SET `LimitDate` = '2023-01-31 00:00:00'

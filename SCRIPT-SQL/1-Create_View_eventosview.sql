@@ -1,0 +1,1 @@
+create view eventosView as SELECT * FROM posdb.eventos where LimitDate >=  CURDATE() order by CreatedDate;

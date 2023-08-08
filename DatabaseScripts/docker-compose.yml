@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  db:
+    image: mysql:latest
+    container_name: db
+    hostname: db
+    networks:
+      - default
+    volumes:
+      - ~/docker/volumes/mysql/data:/var/lib/mysql
+    environment:
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      - MYSQL_ROOT_PASSWORD=4545c8XAjQCHA?PdVzct
+      - MYSQL_DATABASE=mysql-test
+    ports:
+      - "3306:3306"
+    command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
+    restart: always
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links: 
+        - db:db
+    ports:
+        - 8000:80
+    environment:
+        MYSQL_ROOT_PASSWORD: 4545c8XAjQCHA?PdVzct
+
+
